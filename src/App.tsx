@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-
+import { Event } from "./pages/Event";
 
 const GET_LESSONS_QUERY = gql`
   query {
@@ -19,12 +19,9 @@ function App() {
   const { data } = useQuery<{lessons: Lesson[]}>(GET_LESSONS_QUERY)
 
   return (
-    <ul>
-      //Só procura as lessons se data não for vazio
-      {data?.lessons.map(lesson => {
-        return <li key={lesson.id}>{lesson.title}</li>
-      })}
-    </ul>
+    <>
+      <Event/>
+    </>
   )
 }
 
